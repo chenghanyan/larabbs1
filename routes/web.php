@@ -31,7 +31,9 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 // 用户管理路由
 Route::resource('users', 'UserController', ['only' => ['show', 'update', 'edit']]);
 
-Route::resource('topics', 'TopicController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+Route::resource('topics', 'TopicController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
+// 翻译用
+Route::get('topics/{topic}/{slug?}', 'TopicController@show')->name('topics.show');
 
 Route::resource('categories', 'CategoryController', ['only' => ['show']]);
 //编辑器上传图片
